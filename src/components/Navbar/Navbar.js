@@ -14,8 +14,13 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom';
 
-const pages = ['APOD', 'Search Picture', 'Earthquakes'];
+const pages = [
+	{ name: 'APOD', link: '/' },
+	{ name: 'Search Picture', link: '/searchimg' },
+	{ name: 'Earthquakes', link: '/earthquakes' },
+];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
@@ -87,8 +92,10 @@ function Navbar() {
 								display: { xs: 'block', md: 'none' },
 							}}>
 							{pages.map((page) => (
-								<MenuItem key={page} onClick={handleCloseNavMenu}>
-									<Typography textAlign="center">{page}</Typography>
+								<MenuItem key={page.name} onClick={handleCloseNavMenu}>
+									<Link key={page.link} to={page.link}>
+										<Typography textAlign="center">{page.name}</Typography>
+									</Link>
 								</MenuItem>
 							))}
 						</Menu>
@@ -113,12 +120,14 @@ function Navbar() {
 					</Typography>
 					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 						{pages.map((page) => (
-							<Button
-								key={page}
-								onClick={handleCloseNavMenu}
-								sx={{ my: 2, color: 'white', display: 'block' }}>
-								{page}
-							</Button>
+							<Link key={page.link} to={page.link}>
+								<Button
+									key={page.name}
+									onClick={handleCloseNavMenu}
+									sx={{ my: 2, color: 'white', display: 'block' }}>
+									{page.name}
+								</Button>
+							</Link>
 						))}
 					</Box>
 
