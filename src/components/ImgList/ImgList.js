@@ -29,7 +29,11 @@ function ImgList(props) {
 					/>
 					<ImageListItemBar
 						title={img.title}
-						subtitle={img.copyright}
+						subtitle={
+							img.copyright
+								? `Author: ${img.copyright} - ${img.date}`
+								: `Author: unknown - ${img.date}`
+						}
 						actionIcon={
 							<Link href={img.hdurl} underline="none" target="blank">
 								<IconButton

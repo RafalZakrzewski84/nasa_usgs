@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import APIs from '../helpers/APIs';
+
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import APIs from '../helpers/APIs';
 
 import ImgList from '../ImgList/ImgList';
 
@@ -62,7 +63,7 @@ function Homepage() {
 		<React.Fragment>
 			<CssBaseline />
 			<Container maxWidth="xl" sx={{ my: '1rem' }}>
-				<Box sx={{ bgcolor: '#cfe8fc', height: '80vh' }}>
+				<Box sx={{ bgcolor: '#fff', height: '80vh' }}>
 					<ImgList apod={apod} monthTitle={monthTitle} />
 				</Box>
 			</Container>
