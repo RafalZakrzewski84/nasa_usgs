@@ -43,9 +43,9 @@ function Earthquakes() {
 	return (
 		<React.Fragment>
 			<CssBaseline />
-			<Container maxWidth="xl">
-				<Box sx={{ bgcolor: '#cfe8fc', height: '100vh', my: '1rem' }}>
-					<MapLeaflet />
+			<Container align="center" maxWidth="xl">
+				<Box sx={{ bgcolor: '#fff', height: '100vh', my: '1rem' }}>
+					<MapLeaflet earthQuakes={earthQuakes} />
 				</Box>
 			</Container>
 		</React.Fragment>
