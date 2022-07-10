@@ -23,7 +23,7 @@ function Earthquakes() {
 		let end_date = `${year}-${month}-${day}`;
 
 		const USGS_API = `${APIs.usgs.base_url}&starttime=${start_date}&endtime=${end_date}&minmagnitude=5`;
-		console.log(USGS_API);
+		// console.log(USGS_API);
 
 		axios
 			.get(USGS_API)

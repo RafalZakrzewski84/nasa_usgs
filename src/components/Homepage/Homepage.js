@@ -43,13 +43,13 @@ function Homepage() {
 		let end_date = `${year}-${month}-${day}`;
 
 		const NASA_API = `${APIs.nasa.base_url}${APIs.nasa.API_KEY}&start_date=${start_date}&end_date=${end_date}`;
-		console.log(NASA_API);
+		// console.log(NASA_API);
 
 		axios
 			.get(NASA_API)
 			.then((response) => {
 				//printing axios response
-				console.log(response.data);
+				// console.log(response.data);
 
 				//setting axios response to todaysArticles
 				setAPOD(response.data);
