@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import MapLeaflet from '../MapLeaflet/MapLeaflet';
 
 function Earthquakes() {
-	const [earthQuakes, setEarthQuakes] = useState([]);
+	const [earthQuakes, setEarthQuakes] = useState(null);
 
 	useEffect(() => {
 		const date = new Date();
@@ -30,10 +30,10 @@ function Earthquakes() {
 			.get(USGS_API)
 			.then((response) => {
 				//printing axios response
-				console.log(response.data);
+				console.log(response.data.features);
 
 				//setting axios response to todaysArticles
-				setEarthQuakes(response.data);
+				setEarthQuakes(response.data.features);
 			})
 			.catch((e) => {
 				console.log(e);
@@ -45,7 +45,7 @@ function Earthquakes() {
 			<CssBaseline />
 			<Container align="center" maxWidth="xl">
 				<Box sx={{ bgcolor: '#fff', height: '100vh', my: '1rem' }}>
-					<MapLeaflet earthQuakes={earthQuakes} />
+					{earthQuakes && <MapLeaflet earthQuakes={earthQuakes} />}
 				</Box>
 			</Container>
 		</React.Fragment>
